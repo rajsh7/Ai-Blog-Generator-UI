@@ -5,7 +5,7 @@ export const generateBlog = async (topic, controller) => {
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic }), // ✅ Properly stringified
+      body: JSON.stringify({ topic }), // Properly stringified
       signal: controller?.signal,
     });
 

@@ -13,7 +13,7 @@ export default function Page() {
   const controllerRef = useRef(null);
   const contentRef = useRef(null);
 
-  // ✅ Auto-scroll for text
+  // Auto-scroll for text
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.scrollTop = contentRef.current.scrollHeight;
@@ -22,7 +22,7 @@ export default function Page() {
 
   const menu = ["Dashboard", "History", "Settings"];
 
-  // ✅ Generate or Stop generation
+  // Generate or Stop generation
   const handleStartStop = async () => {
     if (loading) {
       if (controllerRef.current) controllerRef.current.abort();
@@ -60,7 +60,7 @@ export default function Page() {
         await new Promise((r) => setTimeout(r, 10));
       }
 
-      // ✅ Save to history
+      // Save to history
       setHistory((prev) => [{ topic, content: text }, ...prev]);
     } catch (error) {
       console.error("❌ Error generating blog:", error);
@@ -70,7 +70,7 @@ export default function Page() {
     }
   };
 
-  // ✅ Select history item
+  // Select history item
   const handleSelectHistory = (item) => {
     setTopic(item.topic);
     setContent(item.content);
